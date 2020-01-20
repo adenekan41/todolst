@@ -9,7 +9,7 @@ const initialState = {
 export default function(state = initialState, action) {
 	const { type, payload } = action;
 	switch (type) {
-		case TodoActionTypes.GET_TODO:
+		case TodoActionTypes.GET_TODOS:
 			return {
 				...state,
 				todos: payload,

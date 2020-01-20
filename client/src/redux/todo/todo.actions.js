@@ -15,7 +15,7 @@ export const getTodos = () => async (dispatch) => {
 	 * @property {Object} [Todo]
 	 */
 	try {
-		const res = await axios.get(`${baseUrl}/api/todos`);
+		const res = await axios.get(`/todos`);
 
 		dispatch({
 			type: TodoActionTypes.GET_TODOS,
@@ -40,7 +40,7 @@ export const deleteTodo = (id) => async (dispatch) => {
 	 * @property {Object} [Todo]
 	 */
 	try {
-		const res = await axios.delete(`${baseUrl}/api/todos/${id}`);
+		const res = await axios.delete(`/todos/${id}`);
 
 		dispatch({
 			type: TodoActionTypes.DELETE_TODO,
@@ -72,7 +72,7 @@ export const createTodo = (formdata) => async (dispatch) => {
 			},
 		};
 
-		const res = await axios.post(`${baseUrl}/api/todos`, formdata, config);
+		const res = await axios.post(`/todos`, formdata, config);
 
 		dispatch({
 			type: TodoActionTypes.ADD_TODO,

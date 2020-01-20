@@ -75,6 +75,12 @@ const TodoStyle = styled.div`
 		padding: 12px 32px;
 		margin-top: 1rem;
 	}
+	.large {
+		margin-top: 4rem;
+		font-size: 20px;
+		font-weight: 600;
+		color: #373737 !important;
+	}
 `;
 
 const propTypes = {
@@ -113,16 +119,14 @@ const Todos = ({ todo: { todos, loading }, getTodos }) => {
 					<h1 className="text-center">Create Your Next Todo</h1>
 					<p className="text-center new-todo">Added a new todo below</p>
 					<TodoForm />
-					<div className="row mt-5">
+					<h3 className="large">Todos ({todos.length})</h3>
+					<div className="mt-5 mb-5">
 						{!loading ? (
-							<>
-								<h3 className="large text-primary">Todos</h3>
-								<div className="posts">
-									{todos.map((pst) => (
-										<TodoItem key={pst._id} post={pst}></TodoItem>
-									))}
-								</div>
-							</>
+							<div className="row">
+								{todos.map((pst) => (
+									<TodoItem key={pst._id} todo={pst}></TodoItem>
+								))}
+							</div>
 						) : (
 							<></>
 						)}
