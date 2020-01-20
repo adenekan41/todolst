@@ -1,14 +1,28 @@
 {
-  "name": "server",
+  "name": "todo-api",
   "version": "1.0.0",
-  "description": "a todo list server",
+  "description": "todo api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server",
+    "client": "npm start --prefix client"
   },
-  "author": "",
+  "author": "adenekan41",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.1"
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.1.1",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.5",
+    "request": "^2.88.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
