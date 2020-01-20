@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+@import './App.css';
+
+:root {
+	--theme-primary: #1d7c61;
+	--white: #fff;
+	--accent: #384741;
+	--alert-success: #438875;
+	--alert-danger: #dc5449;
+	--gray: #384741;
+}
+::selection {
+	background: var(--theme-primary);
+	color: var(--white);
+	/* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+	background: var(--theme-primary);
+	color: var(--white);
+	/* Gecko Browsers */
+}
+
+::-webkit-input-placeholder {
+	color: var(--gray);
+	opacity: 1;
+}
+
+:-moz-placeholder {
+	color: var(--gray);
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: var(--gray);
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: var(--gray);
+	opacity: 1;
+}
+
+body {
+	font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	font-weight: 400;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+html {
+	font-display: fallback;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	image-rendering: crisp-edges;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.btn-siwp {
+	background: var(--theme-primary);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.16);
+	border-radius: 4px;
+}
+.btn-siwp:hover {
+	opacity: 0.8;
+	color: #fff;
+}
