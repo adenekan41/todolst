@@ -22,11 +22,11 @@ router.post('/' ,
 
 	try{
 
-		const newTodo = new Post({
+		const newTodo = new Todos({
 			text: req.body.text,
 		})
 
-		const todo = await newPost.save();
+		const todo = await newTodo.save();
 
 		res.json(todo)
 	}

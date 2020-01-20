@@ -1,6 +1,7 @@
 import { TodoActionTypes } from './todo.types';
 import axios from 'axios';
-// import { setAlert } from './alerts'
+
+const baseUrl = 'https://cors-anywhere.herokuapp.com/http://localhost:5000';
 
 /**  Get Current User Profile
  * @param {GET} Method
@@ -14,17 +15,17 @@ export const getTodos = () => async (dispatch) => {
 	 * @property {Object} [Todo]
 	 */
 	try {
-		const res = await axios.get('/api/todos');
+		const res = await axios.get(`${baseUrl}/api/todos`);
 
 		dispatch({
 			type: TodoActionTypes.GET_TODOS,
 			payload: res.data,
 		});
 	} catch (err) {
-		dispatch({
-			type: TodoActionTypes.TODO_ERROR,
-			payload: { msg: err.response.statusText, status: err.response.status },
-		});
+		// dispatch({
+		//     type: TodoActionTypes.TODO_ERROR,
+		//     payload: {msg: err.response.statusText, status: err.response.status}
+		// })
 	}
 };
 
@@ -39,7 +40,7 @@ export const deleteTodo = (id) => async (dispatch) => {
 	 * @property {Object} [Todo]
 	 */
 	try {
-		const res = await axios.delete(`/api/todos/${id}`);
+		const res = await axios.delete(`${baseUrl}/api/todos/${id}`);
 
 		dispatch({
 			type: TodoActionTypes.DELETE_TODO,
@@ -47,10 +48,10 @@ export const deleteTodo = (id) => async (dispatch) => {
 		});
 		// dispatch(setAlert("Todo Removed", "danger"))
 	} catch (err) {
-		dispatch({
-			type: TodoActionTypes.TODO_ERROR,
-			payload: { msg: err.response.statusText, status: err.response.status },
-		});
+		// dispatch({
+		//     type: TodoActionTypes.TODO_ERROR,
+		//     payload: {msg: err.response.statusText, status: err.response.status}
+		// })
 	}
 };
 
@@ -71,7 +72,7 @@ export const createTodo = (formdata) => async (dispatch) => {
 			},
 		};
 
-		const res = await axios.post('/api/todos', formdata, config);
+		const res = await axios.post(`${baseUrl}/api/todos`, formdata, config);
 
 		dispatch({
 			type: TodoActionTypes.ADD_TODO,
@@ -79,14 +80,14 @@ export const createTodo = (formdata) => async (dispatch) => {
 		});
 		//    dispatch(setAlert("Todo Created" , 'success'))
 	} catch (err) {
-		const errors = err.response.data.errors;
-
+		//    const errors = err.response.data.errors;
+		console.log(err);
 		//    if(errors){
 		//        errors.forEach(error => dispatch(setAlert(error.msg, 'danger ')))
 		//    }
-		dispatch({
-			type: TodoActionTypes.TODO_ERROR,
-			payload: { msg: err.response.statusText, status: err.response.status },
-		});
+		//    dispatch({
+		//        type: TodoActionTypes.TODO_ERROR,
+		//        payload: {msg: err.response.statusText, status: err.response.status}
+		//    })
 	}
 };

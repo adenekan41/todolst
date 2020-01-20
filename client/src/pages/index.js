@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getTodos } from '../redux/todo/todo.actions';
+import TodoForm from './views/todo-form';
+import TodoItem from './views/todo-item';
 
 const IndexStyle = styled.div`
 	height: 100vh;
@@ -61,6 +63,18 @@ const TodoStyle = styled.div`
 		/* margin-bottom: 1rem; */
 		font-weight: 400;
 	}
+	button {
+		background: #ff5678;
+		border: none;
+		border-radius: 50px;
+		font-weight: 500;
+		margin-top: 1rem;
+	}
+	input {
+		border-radius: 50px;
+		padding: 12px 32px;
+		margin-top: 1rem;
+	}
 `;
 
 const propTypes = {
@@ -98,13 +112,20 @@ const Todos = ({ todo: { todos, loading }, getTodos }) => {
 				<div className="container">
 					<h1 className="text-center">Create Your Next Todo</h1>
 					<p className="text-center new-todo">Added a new todo below</p>
-					{/* <TodoForm /> */}
-					<div className="row">
-						<div className="col-md-4">
-							<div className="card">
-								<div className="card-body"></div>
-							</div>
-						</div>
+					<TodoForm />
+					<div className="row mt-5">
+						{!loading ? (
+							<>
+								<h3 className="large text-primary">Todos</h3>
+								<div className="posts">
+									{todos.map((pst) => (
+										<TodoItem key={pst._id} post={pst}></TodoItem>
+									))}
+								</div>
+							</>
+						) : (
+							<></>
+						)}
 					</div>
 				</div>
 			</TodoStyle>
