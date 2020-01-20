@@ -38,7 +38,7 @@ const TodoItemStyle = styled.div`
 `;
 const TodoItem = ({ todo: { _id, text, date }, deleteTodo }) => {
 	return (
-		<TodoItemStyle className="col-md-4">
+		<TodoItemStyle className="col-md-4 mb-4">
 			<div className="card">
 				<div className="card-body">
 					<button
