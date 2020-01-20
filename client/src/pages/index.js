@@ -41,7 +41,7 @@ const IndexStyle = styled.div`
 		font-size: 16px;
 		font-weight: 400;
 	}
-	button {
+	a {
 		background: #ff5678;
 		border: none;
 		border-radius: 50px;
@@ -106,7 +106,9 @@ const Todos = ({ todo: { todos, loading }, getTodos }) => {
 							<p>
 								Create Your first Todo with todolist.io we manage your todo.
 							</p>
-							<button className="btn btn-danger">Create your first todo</button>
+							<a href="#createapp" className="btn btn-danger">
+								Create your first todo
+							</a>
 						</div>
 						<div className="col-md-7">
 							<Banner />
@@ -115,7 +117,7 @@ const Todos = ({ todo: { todos, loading }, getTodos }) => {
 				</div>
 			</IndexStyle>
 			<TodoStyle>
-				<div className="container">
+				<div className="container" id="createapp">
 					<h1 className="text-center">Create Your Next Todo</h1>
 					<p className="text-center new-todo">Added a new todo below</p>
 					<TodoForm />
