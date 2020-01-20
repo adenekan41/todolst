@@ -1,5 +1,6 @@
 import { TodoActionTypes } from './todo.types';
-import axios from 'axios';
+import API from '../api';
+// import API from 'API';
 
 /**  Get Current User Profile
  * @param {GET} Method
@@ -13,17 +14,14 @@ export const getTodos = () => async (dispatch) => {
 	 * @property {Object} [Todo]
 	 */
 	try {
-		const res = await axios.get(`/todos`);
+		const res = await API.get(`/todos`);
 
 		dispatch({
 			type: TodoActionTypes.GET_TODOS,
 			payload: res.data,
 		});
 	} catch (err) {
-		// dispatch({
-		//     type: TodoActionTypes.TODO_ERROR,
-		//     payload: {msg: err.response.statusText, status: err.response.status}
-		// })
+		throw err;
 	}
 };
 
@@ -38,18 +36,14 @@ export const deleteTodo = (id) => async (dispatch) => {
 	 * @property {Object} [Todo]
 	 */
 	try {
-		const res = await axios.post(`/todos/${id}`);
+		const res = await API.post(`/todos/${id}`);
 
 		dispatch({
 			type: TodoActionTypes.DELETE_TODO,
 			payload: { id, todo: res.data },
 		});
-		// dispatch(setAlert("Todo Removed", "danger"))
 	} catch (err) {
-		// dispatch({
-		//     type: TodoActionTypes.TODO_ERROR,
-		//     payload: {msg: err.response.statusText, status: err.response.status}
-		// })
+		throw err;
 	}
 };
 
@@ -70,22 +64,13 @@ export const createTodo = (formdata) => async (dispatch) => {
 			},
 		};
 
-		const res = await axios.post(`/todos`, formdata, config);
+		const res = await API.post(`/todos`, formdata, config);
 
 		dispatch({
 			type: TodoActionTypes.ADD_TODO,
 			payload: res.data,
 		});
-		//    dispatch(setAlert("Todo Created" , 'success'))
 	} catch (err) {
-		//    const errors = err.response.data.errors;
 		console.log(err);
-		//    if(errors){
-		//        errors.forEach(error => dispatch(setAlert(error.msg, 'danger ')))
-		//    }
-		//    dispatch({
-		//        type: TodoActionTypes.TODO_ERROR,
-		//        payload: {msg: err.response.statusText, status: err.response.status}
-		//    })
 	}
 };

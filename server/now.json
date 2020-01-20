@@ -6,6 +6,11 @@
         "src": "/",
         "dest": "/index.js",
         "methods": ["GET"]
+      },
+      {
+        "src": "/api/todos",
+        "dest": "/index.js",
+        "methods": ["GET", "POST"]
       }
     ]
   }
