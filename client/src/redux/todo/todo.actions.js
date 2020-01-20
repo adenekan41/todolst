@@ -40,7 +40,7 @@ export const deleteTodo = (id) => async (dispatch) => {
 	 * @property {Object} [Todo]
 	 */
 	try {
-		const res = await axios.delete(`/todos/${id}`);
+		const res = await axios.post(`/todos/${id}`);
 
 		dispatch({
 			type: TodoActionTypes.DELETE_TODO,

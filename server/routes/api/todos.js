@@ -41,12 +41,12 @@ router.post('/' ,
 // @access Private
 
 
-router.delete('/:id' , async (req,res) => {
+router.post('/:id' , async (req,res) => {
 
 	try{
 
 		const todo = await Todos.findById(req.params.id);
-		if(!post){
+		if(!todo){
 			return res.status(404).json({ msg: "Todo Not Found"})
 		}
 		await todo.remove()
