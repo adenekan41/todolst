@@ -1,0 +1,6 @@
+export const TodoActionTypes = {
+	GET_TODOS: 'GET_TODOS',
+	TODO_ERROR: 'TODO_ERROR',
+	DELETE_TODO: 'DELETE_TODO',
+	ADD_TODO: 'ADD_TODO',
+};

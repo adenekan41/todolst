@@ -1,6 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { ReactComponent as Banner } from '../assets/banner.svg';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getTodos } from '../redux/todo/todo.actions';
 
 const IndexStyle = styled.div`
 	height: 100vh;
@@ -46,8 +49,28 @@ const IndexStyle = styled.div`
 	}
 `;
 
-const TodoStyle = styled.div``;
-const IndexPage = () => {
+const TodoStyle = styled.div`
+	h1 {
+		font-weight: 800;
+		font-size: 33px;
+		color: #1b1b1b;
+	}
+	p.new-todo {
+		color: #717171;
+		font-size: 15px;
+		/* margin-bottom: 1rem; */
+		font-weight: 400;
+	}
+`;
+
+const propTypes = {
+	getTodos: PropTypes.func.isRequired,
+	todo: PropTypes.object.isRequired,
+};
+const Todos = ({ todo: { todos, loading }, getTodos }) => {
+	useEffect(() => {
+		getTodos();
+	}, [getTodos]);
 	return (
 		<Fragment>
 			<IndexStyle>
@@ -71,9 +94,26 @@ const IndexPage = () => {
 					</div>
 				</div>
 			</IndexStyle>
-			<TodoStyle>hoo</TodoStyle>
+			<TodoStyle>
+				<div className="container">
+					<h1 className="text-center">Create Your Next Todo</h1>
+					<p className="text-center new-todo">Added a new todo below</p>
+					{/* <TodoForm /> */}
+					<div className="row">
+						<div className="col-md-4">
+							<div className="card">
+								<div className="card-body"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</TodoStyle>
 		</Fragment>
 	);
 };
 
-export default IndexPage;
+Todos.propTypes = propTypes;
+const mapStateToProps = (state) => ({
+	todo: state.todos,
+});
+export default connect(mapStateToProps, { getTodos })(Todos);

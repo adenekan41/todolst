@@ -41,7 +41,7 @@ router.post('/' ,
 // @access Private
 
 
-router.delete('/:id' ,auth, async (req,res) => {
+router.delete('/:id' , async (req,res) => {
 
 	try{
 
@@ -64,7 +64,7 @@ router.delete('/:id' ,auth, async (req,res) => {
 // @route Get api/todos
 // @desc Get All Todos
 // @access Private
-router.get('/' ,auth, async (req,res) => {
+router.get('/' , async (req,res) => {
 
 	try{
 

@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://codewonders:codewonders@devconnector-xu64y.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURI": "mongodb://codewonders:24Junewondex@ds211269.mlab.com:11269/todoapp"
 }
   
