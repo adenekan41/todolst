@@ -4,9 +4,9 @@
   "description": "todo api",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server",
+    "server": "nodemon index",
     "client": "npm start --prefix client"
   },
   "author": "adenekan41",
