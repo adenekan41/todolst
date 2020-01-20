@@ -1,0 +1,22 @@
+{
+  "name": "exquis-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix client",
+    "build": "npm run build --prefix client",
+    "server": "npm start --prefix server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adenekan41/exquis-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adenekan41/exquis-app/issues"
+  },
+  "homepage": "https://github.com/adenekan41/exquis-app#readme"
+}

@@ -1,8 +1,6 @@
 import { TodoActionTypes } from './todo.types';
 import axios from 'axios';
 
-const baseUrl = 'https://cors-anywhere.herokuapp.com/http://localhost:5000';
-
 /**  Get Current User Profile
  * @param {GET} Method
  * @return {Current Users Todos} returns all the current users profile
