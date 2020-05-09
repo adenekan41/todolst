@@ -1,4 +1,4 @@
-# Exquis-app
+# Todolst
 A small tasks management system
 
 ## Quick Overview
